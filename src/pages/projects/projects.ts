@@ -11,55 +11,28 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+
   {
-    name: 'Devaradise.com',
-    description: 'A blog that sharing web development resources and tutorials',
-    demoLink: 'https://devaradise.com',
-    tags: ['Blog']
-  },
-  {
-    name: 'Sellercraft App',
-    description: 'An Ecommerce omnichannel platform in Southeast Asia',
-    demoLink: 'https://sellercraft.co',
-    demoLinkRel: 'nofollow noopener noreferrer',
-    tags: ['ECommerce', 'Saas']
-  },
-  {
-    name: 'Gaji.id App',
+    name: 'Randu Marketing Team',
     description: 'Payroll and HR Management Information System',
-    demoLink: 'https://sellercraft.co',
-    demoLinkRel: 'nofollow noopener noreferrer',
+    demoLink: 'https://play.google.com/store/apps/details?id=com.rsm.randu_sales_mobile',
     tags: ['HRIS', 'Saas']
   },
   {
-    ...(await getRepositoryDetails('devaradise/paradise-ui')),
-    name: 'Paradise UI',
-    demoLink: 'https://paradise-ui.com',
-    postLink: 'https://devaradise.com/how-i-build-paradise-ui-react-component-library/',
-    tags: ['React', 'UI Library']
+    name: 'Jobseeker.life',
+    description: 'Payroll and HR Management Information System',
+    demoLink: 'https://play.google.com/store/apps/details?id=com.jobseeker.life',
+    tags: ['HRIS', 'Saas']
   },
   {
-    ...(await getRepositoryDetails('syakirurahman/react-lab')),
-    name: 'React Lab',
-    demoLink: 'https://devaradise.com/lab/react/',
-    tags: ['React']
+    name: 'Jobseeker.app',
+    description: 'Simplifying social media for job inspiration through TikTok',
+    demoLink: 'https://play.google.com/store/apps/details?id=com.jobseeker.app',
+    tags: ['Bussiness']
   },
   {
-    ...(await getRepositoryDetails('syakirurahman/pokemon-catcher')),
-    name: 'Pokemon Catcher',
-    demoLink: 'https://pokemon-catcher-18636.web.app/',
-    tags: ['Hobby']
-  },
-  {
-    ...(await getRepositoryDetails('syakirurahman/movie-nominations')),
     name: 'Movie Nominations',
-    demoLink: 'https://movie-nominations-c21c3.web.app/',
-    tags: ['Hobby']
-  },
-  {
-    ...(await getRepositoryDetails('syakirurahman/organization-tree')),
-    name: 'Organization tree',
-    demoLink: 'https://organization-tree-2a446.web.app/',
+    demoLink: 'https://github.com/msarifin29/fugi_movie_app_team5',
     tags: ['Hobby']
   }
 ]
