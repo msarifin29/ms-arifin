@@ -7,36 +7,53 @@ import type { CollectionEntry } from 'astro:content';
 import Ava from '@src/assets/img/avatar.png';
 import Prose from '../components/Prose.astro';
 import { projects } from './projects/projects';
-import ProjectList from '../components/ProjectList.astro'
+import ProjectList from '../components/ProjectList.astro';
 import PostItem from '../components/PostItem.astro';
 
 type BlogPost = CollectionEntry<'blog'>;
 
 const top6Projects = projects.slice(0, 6);
-const posts = (await getCollection('blog')).sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 5);
+const posts = (await getCollection('blog'))
+	.sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
 ---
 
 <BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION}>
 	<div class='container'>
 		<div class='w-full md:flex md:items-center gap-16 mb-10'>
-      <div class="text-pretty leading-9">
-        <h1 class="text-4xl font-bold mb-4">Hi There 👋, </h1>
-        <Prose>
-          <div class="text-lg">
-            <p>I am a Flutter Engineer from Indonesia. I love sharing what I know and helping others learn. Let’s connect if you’re looking for a dedicated developer to bring your next mobile app to life.</p>
-          </div>
-        </Prose>
-      </div>
-      <Image src={Ava} alt="Muhammad" width={300} loading="eager" class="rounded-3xl rotate-3 mx-4 md:mx-0"/>
+			<div class='text-pretty leading-9'>
+				<h1 class='text-4xl font-bold mb-4'>Hi There 👋,</h1>
+				<Prose>
+					<div class='text-lg'>
+						<p>
+							I am a Flutter Engineer from Indonesia. I love sharing what I know and helping others learn. Let’s connect if you’re looking
+							for a dedicated developer to bring your next mobile app to life.
+						</p>
+					</div>
+				</Prose>
+			</div>
+			<Image src={Ava} alt='Muhammad' width={300} loading='eager' class='rounded-3xl rotate-3 mx-4 md:mx-0' />
 		</div>
 		<main>
-      <div>
-        <div class="flex justify-between gap-2 mb-1">
-          <h2 class="text-lg font-bold mb-3">My Projects</h2>
-          <a href="/projects/" class="inline-block py-2 underline text-zinc-950">All projects &raquo;</a>
-        </div>
-        <ProjectList projects={top6Projects}/>
-      </div>
+			<div class='mt-6 mb-12'>
+				<div class='flex justify-between gap-2 border-b mb-1 dark:border-b-zinc-700'>
+					<h2 class='text-lg font-bold mb-3'>Recent Posts</h2>
+					<a href='/posts/' class='inline-block py-2 underline text-zinc-950'>All posts &raquo;</a>
+				</div>
+				<div>
+					{posts.map((post: BlogPost) => <PostItem post={post} />)}
+				</div>
+				<div class='text-right'></div>
+			</div>
+			<!--
+			<div>
+				<div class='flex justify-between gap-2 mb-1'>
+					<h2 class='text-lg font-bold mb-3'>My Projects</h2>
+					<a href='/projects/' class='inline-block py-2 underline text-zinc-950'>All projects &raquo;</a>
+				</div>
+				<ProjectList projects={top6Projects} />
+			</div>
+    -->
 		</main>
 	</div>
 </BaseLayout>
