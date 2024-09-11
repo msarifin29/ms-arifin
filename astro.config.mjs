@@ -7,14 +7,21 @@ import { autoNewTabExternalLinks } from './src/autoNewTabExternalLinks';
 
 import partytown from "@astrojs/partytown";
 
+import vercel from '@astrojs/vercel/serverless';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://devolio.devaradise.com',
   integrations: [mdx(), sitemap(), tailwind(), partytown()],
+
   markdown: {
+    // @ts-ignore
     extendDefaultPlugins: true,
     rehypePlugins: [[autoNewTabExternalLinks, {
       domain: 'localhost:4321'
     }]]
-  }
+  },
+
+  output: 'server',
+  adapter: vercel()
 });
