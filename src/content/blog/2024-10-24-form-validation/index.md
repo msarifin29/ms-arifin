@@ -8,6 +8,7 @@ updatedDate: '2024-10-25'
 tags: ["Tutorial", "Guide","Flutter"]
 coverImage: '../flutter.png'
 ---
+https://github.com/user-attachments/assets/4093a57b-1866-4181-9caf-297c3e86c4da
 
 Handling validation is critical for ensuring that user inputs are correct and legitimate, whether for login forms, password changes, or other types of forms. We will look at how to develop responsive forms while avoiding extra widget rebuilds. Here's an example of how to do form validation in Flutter without using state management. We will concentrate on simplifying the design and optimizing performance to improve the user experience.
 
