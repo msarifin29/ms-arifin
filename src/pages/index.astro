@@ -17,7 +17,6 @@ const posts = (await getCollection('blog'))
 	.sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 5);
 ---
-
 <BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION}>
 	<div class='container'>
 		<div class='w-full md:flex md:items-center gap-16 mb-10'>
@@ -26,13 +25,12 @@ const posts = (await getCollection('blog'))
 				<Prose>
 					<div class='text-lg'>
 						<p>
-							I am a Flutter Engineer from Indonesia. I love sharing what I know and helping others learn. Let’s connect if you’re looking
-							for a dedicated developer to bring your next mobile app to life.
+							I am a Software Engineer from Indonesia. I love sharing what I know and 
+							helping others learn. Let’s connect and collaborate in any projects. 
 						</p>
 					</div>
 				</Prose>
 			</div>
-			<Image src={Ava} alt='Muhammad' width={300} loading='eager' class='rounded-3xl rotate-3 mx-4 md:mx-0' />
 		</div>
 		<main>
 			<div class='mt-6 mb-12'>
@@ -45,7 +43,6 @@ const posts = (await getCollection('blog'))
 				</div>
 				<div class='text-right'></div>
 			</div>
-			<!--
 			<div>
 				<div class='flex justify-between gap-2 mb-1'>
 					<h2 class='text-lg font-bold mb-3'>My Projects</h2>
@@ -53,7 +50,6 @@ const posts = (await getCollection('blog'))
 				</div>
 				<ProjectList projects={top6Projects} />
 			</div>
-    -->
 		</main>
 	</div>
 </BaseLayout>

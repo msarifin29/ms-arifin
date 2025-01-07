@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Ava from '@src/assets/img/m.jpg';
 import Prose from '../components/Prose.astro';
+
+const skills = ["Flutter", "React Native", "Golang"];
 ---
 
 <BaseLayout title='About Me' description='Lorem ipsum dolor sit amet'>
@@ -15,8 +17,8 @@ import Prose from '../components/Prose.astro';
 						<Prose>
 							<div class='text-lg'>
 								<p>
-									I am a Flutter Engineer from Indonesia. I love sharing what I know and helping others learn. Let’s connect if you’re
-									looking for a dedicated developer to bring your next mobile app to life.
+									I am a Software Engineer from Indonesia. I love sharing what I know and 
+							        helping others learn. Let’s connect and collaborate in any projects. 
 								</p>
 							</div>
 						</Prose>
@@ -26,6 +28,20 @@ import Prose from '../components/Prose.astro';
 				<div>
 					<p>.</p>
 				</div>
+				<!--
+				<div class=" rounded-lg p-4 max-w-md mx-auto">
+                  <h3 class="mb-4 text-lg font-bold text-center">Skills</h3>
+                  <ul class="flex flex-wrap justify-center gap-2">
+                    {skills.map((skill) => (
+                    <span class='border border-zinc-300 dark:border-zinc-700 rounded-2xl
+                    text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5 transition-all duration-700
+                    hover:border-zinc-700 dark:hover:border-zinc-300'>
+					{skill}
+					</span>
+                    ))}
+                  </ul>
+                </div>
+				-->
 			</article>
 		</main>
 	</div>
