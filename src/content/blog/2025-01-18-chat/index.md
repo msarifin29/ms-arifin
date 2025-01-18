@@ -10,6 +10,23 @@ tags: ["Rust","Axum","WebSocket","Real-Time Applications"]
 
 Build a real-time personal chat application using Rust and the Axum framework. Enable seamless, bidirectional communication between users, allowing them to send and receive messages instantly.
 
+## Required Dependencies
+
+```rust
+[dependencies]
+async-trait = "0.1.85"
+axum = { version = "0.8.1", features = ["ws"] }
+axum-extra = { version = "0.10.0", features = ["typed-header"] }
+futures = "0.3.31"
+futures-util = { version = "0.3", default-features = false, features = ["sink", "std"] }
+headers = "0.4.0"
+tokio = { version = "1.43.0", features = ["full"] }
+tokio-tungstenite = "0.26.1"
+tower-http = { version = "0.6.2", features = ["fs", "trace"] }
+tracing = "0.1.41"
+tracing-subscriber = { version = "0.3.19", features = ["env-filter"] }
+```
+
 ## Define the Query Parameters
 
 To allow users to specify who they are and who they want to chat with, Define a struct to represent the query parameters for the WebSocket connection. This struct will be used to extract query parameters from the WebSocket connection URL, such as `/ws?user_id=alice&recipient_id=bob`.
