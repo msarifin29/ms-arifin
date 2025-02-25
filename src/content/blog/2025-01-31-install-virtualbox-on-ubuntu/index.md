@@ -5,7 +5,7 @@ slug: 'install-virtualbox-on-ubuntu'
 description: 'Documentation Step by Step Install Virtualbox on Ubuntu'
 pubDate: '2025-01-31'
 updatedDate: '2025-01-31'
-tags: ["VM","Virtualbox"]
+tags: ["VM","Virtualbox","Devops"]
 ---
 
 - ### update system
