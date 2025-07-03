@@ -1,7 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Ava from '@src/assets/img/m.jpg';
+import Ava from '@src/assets/img/avatar.png';
 import Prose from '../components/Prose.astro';
 
 const skills = ["Flutter", "React Native", "Golang"];
@@ -13,42 +13,35 @@ const skills = ["Flutter", "React Native", "Golang"];
 			<article>
 				<div class='w-full md:flex md:items-center gap-16 mb-10'>
 					<div class='text-pretty leading-9'>
-						<h1 class='text-4xl font-bold mb-4'>Hi There 👋, Syamsul Here!</h1>
+						<!-- <h1 class='text-4xl font-bold mb-4'>Hi There 👋, Syamsul Here!</h1> -->
 						<Prose>
 							<div class='text-lg'>
+								<h3 class='text-4xl font-bold mb-4'>🧑‍💻 About Me</h3>
 								<p>
-									I’m a Software Engineer from Indonesia with a passion for sharing knowledge and helping others grow. 
-									Over the past decade, I’ve built a career across four distinct industries, including Marketing and Information Systems, 
-									which shaped my ability to solve complex problems with creativity and cross-functional insight.
-
-									Each career transition sharpened my adaptability, strategic thinking, and technical skills — 
-									allowing me to deliver real results and drive innovation. I’m always eager to connect, collaborate, 
-									and contribute to meaningful projects that make an impact.
-
-									Let’s build something great together.
+									I’m a Software Engineer from Indonesia. I enjoy writing clean, 
+									efficient code and love sharing what I learn to help others grow. 
+									Whether it’s a new tech stack or a tricky bug fix, I believe knowledge grows best when shared.
+								</p>
+								<h3 class='text-4xl font-bold mb-4'>🛠 My Journey</h3>
+								<p>
+									Over the past 10 years, I’ve worked across four different industries, from Marketing to Information Systems. 
+									Each step taught me something new — how to adapt, solve real-world problems, and think across disciplines.
+								</p>
+								<p>
+									This diverse background gives me a unique perspective and the ability to approach challenges with creativity and strategy.
+								</p>
+								<h3 class='text-4xl font-bold mb-4'>🤝 Let’s Connect</h3>
+								<p>
+									I’m always open to collaboration, learning, or just a good tech chat. If you have a project in mind, 
+									want to share ideas, or simply connect — let’s talk and build something impactful together.
 								</p>
 							</div>
 						</Prose>
 					</div>
-					<Image src={Ava} alt='Muhammad' width={300} class='rounded-3xl rotate-3 mx-4 md:mx-0' />
+					<!-- <Image src={Ava} alt='Muhammad' width={200} class='rounded-3xl rotate-3 mx-4 md:mx-0' /> -->
 				</div>
-				<div>
-					<p>.</p>
-				</div>
-				<!--
-				<div class=" rounded-lg p-4 max-w-md mx-auto">
-                  <h3 class="mb-4 text-lg font-bold text-center">Skills</h3>
-                  <ul class="flex flex-wrap justify-center gap-2">
-                    {skills.map((skill) => (
-                    <span class='border border-zinc-300 dark:border-zinc-700 rounded-2xl
-                    text-sm text-zinc-700 dark:text-zinc-300 no-underline px-2 py-0.5 transition-all duration-700
-                    hover:border-zinc-700 dark:hover:border-zinc-300'>
-					{skill}
-					</span>
-                    ))}
-                  </ul>
-                </div>
-				-->
+				
+				
 			</article>
 		</main>
 	</div>
