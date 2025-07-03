@@ -40,5 +40,19 @@ export const projects: Project[] = [
     demoLink: 'https://github.com/msarifin29/fugi_movie_app_team5',
     tags: ['Hobby'],
     techStack: ['Flutter']
+  },
+  {
+    name: 'WWWaste Producer',
+    description: 'Mobile app designed to streamline waste management operations',
+    demoLink: 'https://play.google.com/store/apps/details?id=com.wwwaste.producer&hl=id',
+    tags: ['Bussiness'],
+    techStack: ['Flutter']
+  },
+  {
+    name: 'WWWaste Driver',
+    description: 'Mobile app designed to streamline waste management operations',
+    demoLink: 'https://play.google.com/store/apps/details?id=com.wwwaste.collector&hl=id',
+    tags: ['Bussiness'],
+    techStack: ['Flutter']
   }
 ]
