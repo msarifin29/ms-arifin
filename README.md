@@ -1,5 +1,10 @@
-# ms-arifin
 
+### How to run
 
-How to run 
-`npm run dev`
+```bash
+npm install
+```
+
+```bash
+npm run dev
+```
