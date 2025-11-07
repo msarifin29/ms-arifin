@@ -2,31 +2,31 @@
 import { SITE_TITLE, SITE_TAGLINE, SITE_DESCRIPTION } from '../consts';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import Ava from '@src/assets/img/m.jpg';
 import Prose from '../components/Prose.astro';
 import { projects } from './projects/projects';
-import ProjectList from '../components/ProjectList.astro';
 import PostItem from '../components/PostItem.astro';
 
 type BlogPost = CollectionEntry<'blog'>;
-
+const aboutme =
+	"I'm a Software Engineer from Indonesia with a simple philosophy: code should be elegant, and knowledge should be shared. I get a kick out of transforming complex challenges into clean, efficient solutions and then sharing the lessons I've learned along the way to help others grow.";
 const top6Projects = projects.slice(0, 6);
 const posts = (await getCollection('blog'))
 	.sort((a: BlogPost, b: BlogPost) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 	.slice(0, 5);
 ---
+
 <BaseLayout title={SITE_TITLE + ' - ' + SITE_TAGLINE} description={SITE_DESCRIPTION}>
 	<div class='container'>
-		<div class='w-full md:flex md:items-center gap-16 mb-10'>
+		<div
+			class='w-full md:flex md:items-center gap-16 mb-10 bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1'
+		>
 			<div class='text-pretty leading-9'>
 				<h1 class='text-4xl font-bold mb-4'>Hi There 👋,</h1>
 				<Prose>
 					<div class='text-lg'>
 						<p>
-							I am a Software Engineer from Indonesia. I love sharing what I know and 
-							helping others learn. Let’s connect and collaborate in any projects. 
+							{aboutme}
 						</p>
 					</div>
 				</Prose>
@@ -43,13 +43,6 @@ const posts = (await getCollection('blog'))
 				</div>
 				<div class='text-right'></div>
 			</div>
-			<!-- <div>
-				<div class='flex justify-between gap-2 mb-1'>
-					<h2 class='text-lg font-bold mb-3'>My Projects</h2>
-					<a href='/projects/' class='inline-block py-2 underline text-zinc-950'>All projects &raquo;</a>
-				</div>
-				<ProjectList projects={top6Projects} />
-			</div> -->
 		</main>
 	</div>
 </BaseLayout>

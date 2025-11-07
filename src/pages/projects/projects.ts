@@ -1,58 +1,52 @@
-import { getRepositoryDetails } from "../../utils";
 
 export interface Project {
-  name: string;
-  demoLink: string;
-  tags?: string[],
-  techStack?: string[],
-  description?: string;
-  postLink?: string;
-  demoLinkRel?: string;
-  [key: string]: any;
+  role: string;
+  appStore?: string;
+  playStore?: string;
+  stack: string;
+  details: string[];
 }
 
-export const projects: Project[] = [
 
+export const projects: Project[] = [
   {
-    name: 'Randu Marketing Team',
-    description: 'Payroll and HR Management Information System',
-    demoLink: 'https://play.google.com/store/apps/details?id=com.rsm.randu_sales_mobile',
-    tags: ['HRIS', 'Saas'],
-    techStack: ['Flutter']
+    role: "Flutter Developer (PT Clean Medic Indus)",
+    stack: "Flutter, Firebase, Google Maps API",
+    playStore: 'https://play.google.com/store/apps/details?id=com.wwwaste.producer&hl=id',
+    details: [
+      "Migrated the company’s mobile application from a monolithic to a monorepo architecture using Melos.",
+      "Integrated Google Maps for location-based services, enabling dynamic location tracking and real-time visualization.",
+      "Optimized state management with GetX, reducing rebuild times and enhancing scalability."
+    ]
   },
   {
-    name: 'Jobseeker.life',
-    description: 'Payroll and HR Management Information System',
-    demoLink: 'https://play.google.com/store/apps/details?id=com.jobseeker.life',
-    tags: ['HRIS', 'Saas'],
-    techStack: ['Flutter', 'Firebase']
+    role: "Full Stack Developer (Net Geometry Sdn Bhd)",
+    stack: "Go (Golang), PostgreSQL, Flutter Web, REST APIs, Docker",
+    details: [
+      "Designed and implemented RESTful APIs using Golang and PostgreSQL to manage and query complex data workflows.",
+      "Developed a secure spreadsheet upload system with data validation, and asynchronous processing.",
+      "Built a custom PDF viewer and interactive form components in Flutter."
+    ]
   },
   {
-    name: 'Jobseeker.app',
-    description: 'Simplifying social media for job inspiration through TikTok',
-    demoLink: 'https://play.google.com/store/apps/details?id=com.jobseeker.app',
-    tags: ['Bussiness'],
-    techStack: ['Flutter', 'Firebase']
+    role: "Flutter Developer (PT Momentum Bertumbuh Indonesia)",
+    stack: "Flutter, Google Maps, REST APIs",
+    playStore: "https://play.google.com/store/apps/details?id=com.rsm.randu_sales_mobile",
+    details: [
+      "Developed and launched the Randu Marketing Team App from the ground up using Flutter.",
+      "Integrated Google Maps for sales route tracking and regional management features.",
+      "Collaborated with UI/UX designers and backend engineers to refine user journeys and maintain consistent brand identity."
+    ]
   },
   {
-    name: 'Movie Nominations',
-    description: 'Movie nomination using IMDb API to display favorite films',
-    demoLink: 'https://github.com/msarifin29/fugi_movie_app_team5',
-    tags: ['Hobby'],
-    techStack: ['Flutter']
-  },
-  {
-    name: 'WWWaste Producer',
-    description: 'Mobile app designed to streamline waste management operations',
-    demoLink: 'https://play.google.com/store/apps/details?id=com.wwwaste.producer&hl=id',
-    tags: ['Bussiness'],
-    techStack: ['Flutter']
-  },
-  {
-    name: 'WWWaste Driver',
-    description: 'Mobile app designed to streamline waste management operations',
-    demoLink: 'https://play.google.com/store/apps/details?id=com.wwwaste.collector&hl=id',
-    tags: ['Bussiness'],
-    techStack: ['Flutter']
+    role: "Flutter Developer (PT Aplikasi Pekerja Indonesia)",
+    stack: "Flutter, Google ML Kit, Firebase, Google Maps",
+    playStore: 'https://play.google.com/store/apps/details?id=com.jobseeker.life',
+    appStore: "https://apps.apple.com/us/app/jobseeker-life/id6466165581",
+    details: [
+      "Built face recognition and authentication systems using TensorFlow Lite and Google ML Kit for real-time attendance tracking.",
+      "Implemented Firebase Analytics to monitor user activity, performance, and app engagement trends.",
+      "Designed reusable Flutter UI components to standardize app modules and improve developer efficiency."
+    ]
   }
-]
+];

@@ -1,47 +1,45 @@
 ---
-import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Ava from '@src/assets/img/avatar.png';
 import Prose from '../components/Prose.astro';
 
-const skills = ["Flutter", "React Native", "Golang"];
+const about =
+	"I'm a Software Engineer from Indonesia with a simple philosophy: code should be elegant, and knowledge should be shared. I get a kick out of transforming complex challenges into clean, efficient solutions and then sharing the lessons I've learned along the way to help others grow.";
+const journey =
+	"For the past decade, I've navigated a unique path through four different industries—from the creative world of Marketing to the structured realm of Information Systems. This journey has been my greatest teacher, equipping me with a versatile skill set and a unique perspective: the ability to see creative solutions where others see only technical constraints.";
+const connect =
+	"My door is always open for a great conversation about tech, a potential collaboration, or just to exchange ideas. If you're looking to build something impactful, I'd love to hear about it. Let's connect and see what we can create together!";
 ---
 
-<BaseLayout title='About Me' description='Lorem ipsum dolor sit amet'>
+<BaseLayout title='About Me'>
 	<div class='container'>
 		<main class='prose text-lg dark:prose-invert'>
 			<article>
 				<div class='w-full md:flex md:items-center gap-16 mb-10'>
 					<div class='text-pretty leading-9'>
-						<!-- <h1 class='text-4xl font-bold mb-4'>Hi There 👋, Syamsul Here!</h1> -->
 						<Prose>
-							<div class='text-lg'>
-								<h3 class='text-4xl font-bold mb-4'>🧑‍💻 About Me</h3>
-								<p>
-									I’m a Software Engineer from Indonesia. I enjoy writing clean, 
-									efficient code and love sharing what I learn to help others grow. 
-									Whether it’s a new tech stack or a tricky bug fix, I believe knowledge grows best when shared.
-								</p>
-								<h3 class='text-4xl font-bold mb-4'>🛠 My Journey</h3>
-								<p>
-									Over the past 10 years, I’ve worked across four different industries, from Marketing to Information Systems. 
-									Each step taught me something new — how to adapt, solve real-world problems, and think across disciplines.
-								</p>
-								<p>
-									This diverse background gives me a unique perspective and the ability to approach challenges with creativity and strategy.
-								</p>
-								<h3 class='text-4xl font-bold mb-4'>🤝 Let’s Connect</h3>
-								<p>
-									I’m always open to collaboration, learning, or just a good tech chat. If you have a project in mind, 
-									want to share ideas, or simply connect — let’s talk and build something impactful together.
-								</p>
+							<div
+								class='bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 focus:outline-2 focus:outline-blue-500 focus:outline-offset-2 focus:shadow-xl focus:-translate-y-1'
+								tabindex='0'
+							>
+								<div class='text-lg'>
+									<h3 class='text-4xl font-bold mb-4'>🧑‍💻 About Me</h3>
+									<p>
+										{about}
+									</p>
+									<h3 class='text-4xl font-bold mb-4'>🛠 My Journey</h3>
+									<p>
+										{journey}
+									</p>
+
+									<h3 class='text-4xl font-bold mb-4'>🤝 Let’s Connect</h3>
+									<p>
+										{connect}
+									</p>
+								</div>
 							</div>
 						</Prose>
 					</div>
-					<!-- <Image src={Ava} alt='Muhammad' width={200} class='rounded-3xl rotate-3 mx-4 md:mx-0' /> -->
 				</div>
-				
-				
 			</article>
 		</main>
 	</div>
