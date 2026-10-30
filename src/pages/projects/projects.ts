@@ -4,6 +4,7 @@ export interface Project {
   appStore?: string;
   playStore?: string;
   url?: string;
+  status?: 'active' | 'deactive';
   stack: string;
   details: string[];
 }
@@ -11,10 +12,22 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    role: "Creator & Maintainer (frc — Face Recognition Camera)",
+    stack: "Flutter, Dart, Google ML Kit, TensorFlow Lite",
+    url: "https://pub.dev/packages/frc",
+    status: "active",
+    details: [
+      "Published an open-source Flutter camera plugin with face detection support for Android and iOS.",
+      "Built FaceCamera and FaceCameraCircle widgets with configurable capture controls.",
+      "Included a MobileFaceNet-based recognition handler for comparing captured images."
+    ]
+  },
+  {
     role: "Flutter Developer (PT Clean Medic Indus)",
     stack: "Flutter, Firebase, Google Maps API",
     playStore: 'https://play.google.com/store/apps/details?id=com.wwwaste.producer&hl=id',
     appStore: 'https://apps.apple.com/us/app/wwwaste-generator/id6748935414',
+    status: "active",
     details: [
       "Migrated the company’s mobile application from a monolithic to a monorepo architecture using Melos.",
       "Integrated Google Maps for location-based services, enabling dynamic location tracking and real-time visualization.",
@@ -45,6 +58,7 @@ export const projects: Project[] = [
     stack: "Flutter, Google ML Kit, Firebase, Google Maps",
     playStore: 'https://play.google.com/store/apps/details?id=com.jobseeker.life',
     appStore: "https://apps.apple.com/us/app/jobseeker-life/id6466165581",
+    status: "active",
     details: [
       "Built face recognition and authentication systems using TensorFlow Lite and Google ML Kit for real-time attendance tracking.",
       "Implemented Firebase Analytics to monitor user activity, performance, and app engagement trends.",

@@ -8,6 +8,15 @@ const { projects } = Astro.props;
 	{
 		projects.map((project: Project) => (
 			<div class='bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1'>
+				{project.status && (
+					<span
+						class:list={[
+							'inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold capitalize mb-3',
+							'bg-green-100 text-green-800 dark:bg-green-900/40 dark:text-green-300'
+						]}>
+						{project.status}
+					</span>
+				)}
 				<p class='text-zinc-600 font-bold dark:text-zinc-400 text-sm mb-2'>{project.role}</p>
 				<p class='text-sm font-semibold text-[#0077B6] mb-3'>{project.stack}</p>
 				<ul class='list-disc list-inside text-zinc-700 dark:text-zinc-300 space-y-1'>
@@ -16,6 +25,17 @@ const { projects } = Astro.props;
 					))}
 				</ul>
 				<div>
+					{project.url && (
+						<div class='flex items-center gap-3 mt-4'>
+							<a
+								href={project.url}
+								target='_blank'
+								rel='noopener noreferrer'
+								class='text-white bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded-lg text-sm font-medium transition-colors'>
+								View Package
+							</a>
+						</div>
+					)}
 					{(project.playStore || project.appStore) && (
 						<div class='flex items-center gap-3 mt-4'>
 							{project.playStore && (
