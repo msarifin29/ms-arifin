@@ -3,6 +3,7 @@ export interface Project {
   role: string;
   appStore?: string;
   playStore?: string;
+  url?: string;
   stack: string;
   details: string[];
 }
@@ -13,6 +14,7 @@ export const projects: Project[] = [
     role: "Flutter Developer (PT Clean Medic Indus)",
     stack: "Flutter, Firebase, Google Maps API",
     playStore: 'https://play.google.com/store/apps/details?id=com.wwwaste.producer&hl=id',
+    appStore: 'https://apps.apple.com/us/app/wwwaste-generator/id6748935414',
     details: [
       "Migrated the company’s mobile application from a monolithic to a monorepo architecture using Melos.",
       "Integrated Google Maps for location-based services, enabling dynamic location tracking and real-time visualization.",
