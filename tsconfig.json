@@ -1,7 +1,10 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
+    "strict": true,
     "strictNullChecks": true,
+    "moduleResolution": "bundler",
+    "allowJs": true,
     "paths": {
       "@src/*": [
         "./src/*"
