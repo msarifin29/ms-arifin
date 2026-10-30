@@ -1,10 +1,9 @@
 import { defineCollection } from 'astro:content';
-import { z } from 'astro/zod'; // Di v6/v7 disarankan mengimpor z dari astro/zod
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const blog = defineCollection({
-	// Type-check frontmatter using a schema
-	loader: glob({ pattern: '**/*.{md,mdx}', base: "./src/content/blog" }),
+	loader: glob({ pattern: '**/index.{md,mdx}', base: "./src/content/blog" }),
 	schema: ({ image }) => z.object({
 		title: z.string(),
 		seoTitle: z.string().optional(),

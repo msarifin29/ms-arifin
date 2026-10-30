@@ -19,7 +19,7 @@ const { GISCUS_REPO, GISCUS_REPO_ID, GISCUS_CATEGORY, GISCUS_CATEGORY_ID } = loa
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts.map((post: any) => ({
-		params: { slug: post.slug },
+		params: { slug: post.slug ?? post.id },
 		props: post
 	}));
 }
