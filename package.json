@@ -29,5 +29,12 @@
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "vite": "^5.4.1"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true,
+    "sharp@0.33.5": true
+  },
+  "engines": {
+    "node": ">=26.7.0"
   }
 }

@@ -3,7 +3,9 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
-
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 import partytown from "@astrojs/partytown";
 
 
@@ -16,5 +18,11 @@ export default defineConfig({
     // @ts-ignore
     extendDefaultPlugins: true,
   },
-
+  vite: {
+    resolve: {
+      alias: {
+        '@src': path.resolve(__dirname, 'src'),
+      },
+    },
+  },
 });
