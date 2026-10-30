@@ -10,33 +10,36 @@ tags: ["Docker","Devops"]
 
 ## Step 1: Update System Packages
 ```sh
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade
 ```
 
 ## Step 2: Install Required Dependencies
 ```sh
-sudo apt install -y ca-certificates curl gnupg
+sudo apt install ca-certificates curl
 ```
 
 ## Step 3: Add Docker’s Official GPG Key
 ```sh
 sudo install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo tee /etc/apt/keyrings/docker.gpg > /dev/null
-sudo chmod a+r /etc/apt/keyrings/docker.gpg
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 ```
 
 ## Step 4: Add Docker Repository
 ```sh
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo tee /etc/apt/sources.list.d/docker.sources <<EOF
+Types: deb
+URIs: https://download.docker.com/linux/ubuntu
+Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")
+Components: stable
+Architectures: $(dpkg --print-architecture)
+Signed-By: /etc/apt/keyrings/docker.asc
+EOF
 ```
+then `sudo apt update`
 
-## Step 5: Install Docker Engine, CLI, and Containerd
-```sh
-sudo apt update
-sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
 
-## Step 6: Verify Docker Installation
+## Step 5: Verify Docker Installation
 ```sh
 docker --version
 sudo systemctl enable docker
@@ -44,43 +47,52 @@ sudo systemctl start docker
 sudo systemctl status docker
 ```
 
-## Step 7: Install Docker Compose (Standalone)
+## Step 6: Install Docker Compose (Standalone)
 ```sh
-DOCKER_COMPOSE_VERSION=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep "tag_name" | cut -d '"' -f 4)
-sudo curl -L "https://github.com/docker/compose/releases/download/$DOCKER_COMPOSE_VERSION/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/v5.6.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
-## Step 8: Verify Docker Compose Installation
+## Step 7: Verify Docker Compose Installation
 ```sh
-docker-compose --version
+docker-compose version
 ```
 
-## Step 9: Add User to Docker Group (Optional, to run Docker without sudo)
+## Step 8: Add User to Docker Group (Optional, to run Docker without sudo)
 ```sh
 sudo usermod -aG docker $USER
 newgrp docker
 ```
 
-## Step 10: Test Docker and Docker Compose
+## Step 9: Verify that the installation is successful
 Run a simple container:
 ```sh
 docker run hello-world
 ```
-Test Docker Compose:
-```sh
-echo -e "version: '3'\nservices:\n  web:\n    image: nginx" > docker-compose.yml
-docker-compose up -d
-docker ps
-docker-compose down
-```
+
 
 ## Uninstall Docker and Docker Compose
+Uninstalling DOcker Engine
 ```sh
-sudo apt remove -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo apt purge docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
+```
+To delete all images, containers, and volumes
+```sh
 sudo rm -rf /var/lib/docker
 sudo rm -rf /var/lib/containerd
-sudo rm -f /usr/local/bin/docker-compose
+```
+Remove source list and keyrings
+```sh
+sudo rm /etc/apt/sources.list.d/docker.sources
+sudo rm /etc/apt/keyrings/docker.asc
+```
+Uninstalling Docker Compose
+```sh
+sudo apt-get remove docker-compose-plugin
+```
+Remove for all users
+```sh
+rm /usr/local/lib/docker/cli-plugins/docker-compose
 ```
 
 ## Conclusion
